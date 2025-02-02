@@ -15,7 +15,7 @@ function Posts() {
     // Fetch all posts from the backend API
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/posts');
+        const response = await axios.get('https://blog-post-backend.vercel.app/api/posts');
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -38,7 +38,7 @@ function Posts() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/post/${id}`);
+        await axios.delete(`https://blog-post-backend.vercel.app/api/post/${id}`);
         setPosts(posts.filter(post => post._id !== id));
         toast.success('Post deleted successfully!');
       } catch (error) {
@@ -59,7 +59,7 @@ function Posts() {
         description: editingPost.description,
         image: editingPost.image,
       };
-      const response = await axios.put(`http://localhost:5000/api/post/${editingPost._id}`, updatedData);
+      const response = await axios.put(`https://blog-post-backend.vercel.app/api/post/${editingPost._id}`, updatedData);
       setPosts(posts.map(post => (post._id === editingPost._id ? response.data : post)));
       setEditingPost(null);
       toast.success('Post updated successfully!');
