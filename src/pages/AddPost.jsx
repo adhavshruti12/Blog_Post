@@ -41,11 +41,11 @@ function AddPost({ post }) {
     try {
       if (post) {
         // Update existing post
-        await axios.put(`https://blog-post-backend.vercel.app/api/post/${post._id}`, formData);
+        await axios.put(`https://blog-post-backend-nu.vercel.app/api/post/${post._id}`, formData);
         toast.success('Post updated successfully!');
       } else {
         // Create new post
-        await axios.post('https://blog-post-backend.vercel.app/api/add-post', formData);
+        await axios.post('https://blog-post-backend-nu.vercel.app/api/add-post', formData);
         toast.success('Post added successfully!');
       }
       navigate('/posts');
